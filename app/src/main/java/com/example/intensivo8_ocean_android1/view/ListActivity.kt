@@ -3,6 +3,7 @@ package com.example.intensivo8_ocean_android1.view
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.intensivo8_ocean_android1.R
 import com.example.intensivo8_ocean_android1.api.LugaresService
 import com.example.intensivo8_ocean_android1.model.Lugar
@@ -34,13 +35,21 @@ class ListActivity : AppCompatActivity() {
                 lugares += "${it.nome}: ${it.pessoa}\n"
             }
 
-            tvLugares.text = lugares
+            val listaLugares = response.body();
+            val lugar = listaLugares?.get(1)
+
+            tvLugar.text = lugar?.nome
+            Glide.with(applicationContext).load(lugar?.imagemUrl).into(ivLugar)
+
+//            tvLugar.text = lugares
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
+
+        this
 
         val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
