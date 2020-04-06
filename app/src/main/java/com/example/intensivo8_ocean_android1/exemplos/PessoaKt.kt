@@ -1,4 +1,4 @@
-package com.example.intensivo8_ocean_android1
+package com.example.intensivo8_ocean_android1.exemplos
 
 data class PessoaKt(val nome: String,
                     val sobrenome: String,
@@ -15,10 +15,18 @@ data class PessoaKt(val nome: String,
 
 fun main () {
 
-    val pessoa = PessoaKt(nome = "Nome Mãe", sobrenome = "Sobrenome Mãe")
+    val pessoa = PessoaKt(
+        nome = "Nome Mãe",
+        sobrenome = "Sobrenome Mãe"
+    )
 
-    val paulo = PessoaKt(nome = "Paulo", sobrenome = "Salvatore", mae = pessoa)
-    val andre = PessoaKt("André", "Atoji")
+    val paulo = PessoaKt(
+        nome = "Paulo",
+        sobrenome = "Salvatore",
+        mae = pessoa
+    )
+    val andre =
+        PessoaKt("André", "Atoji")
 
     println("A pessoa chama-se ${andre.nome}")
 

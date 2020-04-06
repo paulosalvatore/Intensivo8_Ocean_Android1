@@ -1,4 +1,4 @@
-package com.example.intensivo8_ocean_android1;
+package com.example.intensivo8_ocean_android1.exemplos;
 
 import android.annotation.SuppressLint;
 
