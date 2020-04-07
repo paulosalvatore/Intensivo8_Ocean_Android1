@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="digite_o_seu_nome">Type your name</string>
+    <string name="alterar">Change</string>
+    <string name="o_nome_digitado_aparecera_aqui">Typed name will be shown here</string>
+</resources>

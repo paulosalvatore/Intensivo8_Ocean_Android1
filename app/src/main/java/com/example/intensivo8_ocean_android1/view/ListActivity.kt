@@ -3,7 +3,7 @@ package com.example.intensivo8_ocean_android1.view
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.intensivo8_ocean_android1.R
 import com.example.intensivo8_ocean_android1.api.LugaresService
 import com.example.intensivo8_ocean_android1.model.Lugar
@@ -27,29 +27,27 @@ class ListActivity : AppCompatActivity() {
         }
 
         override fun onResponse(call: Call<List<Lugar>>, response: Response<List<Lugar>>) {
-            longToast("Lista de lugares recebida com sucesso.")
+            val listaLugares = response.body()
 
-            var lugares = ""
-
-            response.body()?.forEach {
-                lugares += "${it.nome}: ${it.pessoa}\n"
-            }
-
-            val listaLugares = response.body();
-            val lugar = listaLugares?.get(1)
-
-            tvLugar.text = lugar?.nome
-            Glide.with(applicationContext).load(lugar?.imagemUrl).into(ivLugar)
-
-//            tvLugar.text = lugares
+            listaLugares?.let {
+                carregarItens(listaLugares)
+                longToast("Lista de lugares carregada com sucesso.")
+            } ?: longToast("Erro ao obter lista de lugares.")
         }
+    }
+
+    private fun carregarItens(listaLugares: List<Lugar>) {
+        val adapter = LugarAdapter(listaLugares)
+
+        recyclerView.adapter = adapter
+
+        val layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = layoutManager
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
-
-        this
 
         val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)

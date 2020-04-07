@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Intensivo8_Ocean_Android1</string>
+    <string name="app_name" translatable="false">Intensivo8_Ocean_Android1</string>
+    <string name="digite_o_seu_nome">Digite o seu nome...</string>
+    <string name="alterar">Alterar</string>
+    <string name="o_nome_digitado_aparecera_aqui">O nome digitado aparecerá aqui</string>
 </resources>

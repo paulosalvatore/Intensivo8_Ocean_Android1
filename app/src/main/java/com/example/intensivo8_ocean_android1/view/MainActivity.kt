@@ -1,8 +1,7 @@
 package com.example.intensivo8_ocean_android1.view
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.intensivo8_ocean_android1.R
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -12,11 +11,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*btAlterar.setOnClickListener {
+        btAlterar.setOnClickListener {
             val nomeDigitado = etNome.text.toString()
 
             tvNome.text = nomeDigitado
-        }*/
+        }
 
 //        btAlterar.setOnClickListener {
 //            Toast.makeText(this, "Informação", Toast.LENGTH_LONG).show()
@@ -31,9 +30,9 @@ class MainActivity : AppCompatActivity() {
 //            }.show()
 //        }
 
-        btAlterar.setOnClickListener {
-            val intent = Intent(this, ListActivity::class.java)
-            startActivity(intent)
-        }
+//        btAlterar.setOnClickListener {
+//            val intent = Intent(this, ListActivity::class.java)
+//            startActivity(intent)
+//        }
     }
 }
